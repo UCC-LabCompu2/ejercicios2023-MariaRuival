@@ -30,6 +30,17 @@ function cambiarUnidades(id, valor){
         document.lasUnidades.unid_pie.value = 3*valor;
         document.lasUnidades.unid_metro.value = 0.9144*valor;
     }
+}
 
-
+function convertirGR(id){
+    var rad, grad;
+    if(id=="grados"){
+        grad = document.getElementById(elementId:"grados").value;
+        rad = (grad*Math.PI)/180;
+    }else if(id=="radianes"){
+        rad = document.getElementById(elementId: "radianes").value;
+        grad = (rad*180)/Math.PI;
+    }
+    document.getElementById(elementId:"grados").value = grad;
+    document.getElementById(elementId:"radianes").value = rad;
 }
