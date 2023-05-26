@@ -44,3 +44,11 @@ function convertirGR(id){
     document.getElementById(elementId:"grados").value = grad;
     document.getElementById(elementId:"radianes").value = rad;
 }
+
+function mostrar_ocultar(valorMO){
+    if(valorMO=="val_mostrar"){
+        document.getElementById(elementId:"divMO").style.display = 'block';
+    }else if(valorMO=="valo_ocultar"){
+        document.getElementById(elementId:"divMO").style.display = 'none';
+    }
+}
