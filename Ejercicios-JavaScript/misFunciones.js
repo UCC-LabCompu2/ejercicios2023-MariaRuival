@@ -52,3 +52,30 @@ function mostrar_ocultar(valorMO){
         document.getElementById(elementId:"divMO").style.display = 'none';
     }
 }
+
+function calcularSuma(){
+    var num1, num2;
+    num1 = document.getElementsByName(elementName: "sum_num1")[0].value;
+    num2 = document.getElementsByName(elementName: "sum_num2")[0].value;
+    document.getElementsByName(elementName:"sum_total")[0].value = Number(num1) + Number(num2);
+}
+function calcularResta(){
+    var num1, num2;
+    num1 = document.getElementsByName(elementName: "res_num1")[0].value;
+    num2 = document.getElementsByName(elementName: "res_num2")[0].value;
+    document.getElementsByName(elementName:"res_total")[0].value = Number(num1) - Number(num2);
+}
+
+function calcularMultiplicacion(){
+    var num1, num2;
+    num1 = document.getElementsByName(elementName: "mul_num1")[0].value;
+    num2 = document.getElementsByName(elementName: "mul_num2")[0].value;
+    document.getElementsByName(elementName:"mul_total")[0].value = Number(num1) * Number(num2);
+}
+
+function calcularDivision(){
+    var num1, num2;
+    num1 = document.getElementsByName(elementName: "div_num1")[0].value;
+    num2 = document.getElementsByName(elementName: "div_num2")[0].value;
+    document.getElementsByName(elementName:"div_total")[0].value = Number(num1) / Number(num2);
+}
