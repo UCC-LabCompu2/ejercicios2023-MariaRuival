@@ -91,3 +91,19 @@ function calcularDivision(){
     num2 = document.getElementsByName(elementName: "div_num2")[0].value;
     document.getElementsByName(elementName:"div_total")[0].innerHTML = Number(num1) / Number(num2);
 }
+
+function cargarWeb(){
+    var cant, unidad, urlComp;
+    cant = document.getElementById(elementId: "distancia").value;
+    unidad = document.getElementsByName(elementName:"")[0].value;
+    urlComp = "segundaWeb.html#" + cant + "#" + unidad;
+    window.open(urlComp);
+}
+
+function cargarResultado(){
+    var urlComp, can, un;
+    urlComp = window.location.href.split(separator: "/")[5];
+    can = urlComp.split(separator: "#")[1];
+    un = urlComp.split(separator: "#")[2];
+    document.getElementById(elementId: "dist").value = can + " " + un;
+}
