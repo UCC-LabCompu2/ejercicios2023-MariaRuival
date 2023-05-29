@@ -47,80 +47,94 @@ function cambiarUnidades(id, valor) {
 function convertirGR(id) {
     var rad, grad;
     if (id == "grados") {
-        grad = document.getElementById(elementId:"grados").value;
+        grad = document.getElementById("grados").value;
         rad = (grad * Math.PI) / 180;
     } else if (id == "radianes") {
-        rad = document.getElementById(elementId:"radianes").value;
+        rad = document.getElementById("radianes").value;
         grad = (rad * 180) / Math.PI;
     }
-    document.getElementById(elementId:"grados").value = grad;
-    document.getElementById(elementId:"radianes").value = rad;
+    document.getElementById("grados").value = grad;
+    document.getElementById("radianes").value = rad;
 }
 
 function mostrar_ocultar(valorMO) {
     if (valorMO == "val_mostrar") {
-        document.getElementById(elementId:"divMO").style.display = 'block';
+        document.getElementById("divMO").style.display = 'block';
     } else if (valorMO == "valo_ocultar") {
-        document.getElementById(elementId:"divMO").style.display = 'none';
+        document.getElementById("divMO").style.display = 'none';
     }
 }
 
 function calcularSuma() {
     var num1, num2;
-    num1 = document.getElementsByName(elementName:"sum_num1")[0].value;
-    num2 = document.getElementsByName(elementName:"sum_num2")[0].value;
-    document.getElementsByName(elementName:"sum_total")[0].innerHTML = Number(num1) + Number(num2);
+    num1 = document.getElementsByName("sum_num1")[0].value;
+    num2 = document.getElementsByName("sum_num2")[0].value;
+    document.getElementsByName("sum_total")[0].innerHTML = Number(num1) + Number(num2);
 }
 
 function calcularResta() {
     var num1, num2;
-    num1 = document.getElementsByName(elementName:"res_num1")[0].value;
-    num2 = document.getElementsByName(elementName:"res_num2")[0].value;
-    document.getElementsByName(elementName:"res_total")[0].innerHTML = Number(num1) - Number(num2);
+    num1 = document.getElementsByName("res_num1")[0].value;
+    num2 = document.getElementsByName("res_num2")[0].value;
+    document.getElementsByName("res_total")[0].innerHTML = Number(num1) - Number(num2);
 }
 
 function calcularMultiplicacion() {
     var num1, num2;
-    num1 = document.getElementsByName(elementName:"mul_num1")[0].value;
-    num2 = document.getElementsByName(elementName:"mul_num2")[0].value;
-    document.getElementsByName(elementName:"mul_total")[0].innerHTML = Number(num1) * Number(num2);
+    num1 = document.getElementsByName("mul_num1")[0].value;
+    num2 = document.getElementsByName("mul_num2")[0].value;
+    document.getElementsByName("mul_total")[0].innerHTML = Number(num1) * Number(num2);
 }
 
 function calcularDivision() {
     var num1, num2;
-    num1 = document.getElementsByName(elementName:"div_num1")[0].value;
-    num2 = document.getElementsByName(elementName:"div_num2")[0].value;
-    document.getElementsByName(elementName:"div_total")[0].innerHTML = Number(num1) / Number(num2);
+    num1 = document.getElementsByName("div_num1")[0].value;
+    num2 = document.getElementsByName("div_num2")[0].value;
+    document.getElementsByName("div_total")[0].innerHTML = Number(num1) / Number(num2);
 }
 
 function cargarWeb() {
     var cant, unidad, urlComp;
-    cant = document.getElementById(elementId:"distancia").value;
-    unidad = document.getElementsByName(elementName:"")[0].value;
+    cant = document.getElementById("distancia").value;
+    unidad = document.getElementsByName("")[0].value;
     urlComp = "segundaWeb.html#" + cant + "#" + unidad;
     window.open(urlComp);
 }
 
 function cargarResultado() {
     var urlComp, can, un;
-    urlComp = window.location.href.split(separator:"/")[5];
-    can = urlComp.split(separator:"#")[1];
-    un = urlComp.split(separator:"#")[2];
-    document.getElementById(elementId:"dist").value = can + " " + un;
+    urlComp = window.location.href.split("/")[5];
+    can = urlComp.split("#")[1];
+    un = urlComp.split( "#")[2];
+    document.getElementById("dist").value = can + " " + un;
 }
 
 function guardarLocalStorage() {
     let distancia, unidad;
-    distancia = document.getElementById(elementId:'distancia').value;
-    unidad = document.getElementsByName(elementName:'unidades')[0].value;
+    distancia = document.getElementById('distancia').value;
+    unidad = document.getElementsByName('unidades')[0].value;
     localStorage.setItem("distanciaLS", distancia);
     localStorage.setItem("unidadesLS", unidad);
-    window.open(url:'2_web.html');
+    window.open('2_web.html');
 }
 
 function cargarLocalStorage() {
     let cant, un;
-    cant = localStorage.getItem(key:"distanciaLS");
-    un = localStorage.getItem(key:"unidadesLS");
-    document.getElementById(elementId:"dist").value = cant + " " + un;
+    cant = localStorage.getItem("distanciaLS");
+    un = localStorage.getItem("unidadesLS");
+    document.getElementById("dist").value = cant + " " + un;
+}
+
+function dibujarCirCuad(){
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var yMax = canvas.height;
+    var xMax = canvas.width;
+    var margen = 5;
+    ctx.fillStyle = "#333899";
+    ctx.fillRect(0+margen,yMax-40-margen,40,40);
+    ctx.arc(xMax/2,yMax/2,20,0,2*Math.PI);
+    ctx.stroke();
+    ctx.fillStyle = "#d90b0b";
+    ctx.fill();
 }
